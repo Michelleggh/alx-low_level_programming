@@ -1,4 +1,4 @@
-                                                                                                                                           #include "main.h"
+#include "main.h"
 
 /**
  * puts2 - writes every other character
@@ -15,8 +15,8 @@ i = 0;
 j = 0;
 
 while (str[i] != '\0')
-{							
-i++;
+{						
+i++:
 }
 
 while (j < i)
