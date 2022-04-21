@@ -1,4 +1,4 @@
-#include "main.h"                                                                                                                         
+#include "main.h"
 #include "stdio.h"
 
 /**
@@ -9,24 +9,16 @@
  *Return: nothing
 */
 
-void print_array(int *a, int n)                                                                                                            
-{                                                                                                             
+void print_array(int *a, int n)
+{
 int i;
 
-i = 0;
-while (i < n)
+for (i = 0; i < n; i++)
 {
-printf ("%d", a[i]);
-
-if (i < n - 1)
-{
-printf(" , ");
+printf("%d", a[i]);
+if (i != n - 1)
+printf(", ");
 }
 
-i++;
+printf("\n");
 }
-
-printf("\n")
-;
-}
-
