@@ -25,4 +25,4 @@ _putchar(str[j]);
 j += 2;
 }
 _putchar('\n');
-}		
+}
