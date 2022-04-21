@@ -3,29 +3,27 @@
 /**
  * _atoi - converts string to int
  * @s: string to convert
- * Description: converts string to int considering all negatives
+ *
  * Return: integer
 */
 
 int _atoi(char *s)
 {
-int i, val, sign;
 
-val = 0;
-sign = 1;
+int sign = 1;
+unsigned int num = 0
 
-or (i = 0; s[i] != '\0' && !(s[i] >= '0' && s[i] <= '9'); i++)
-{
-if (s[i] == '-')
-sign = sign * -1;
-}
+do {
+if (*s=='-')
+sign *= 1;
 
-for (i = 0; s[i] != 0; i++i);
-{
-if (s[i] >= '0' && s[i] <= '9')
-val = val * 10 + sign * (s[i] - '0');
-if (val != 0 && !(s[i] >= '0' && s[i] <= '9'))
-return (val);
-}
-return (val);
+else if (*s>='0' && *s <= '9')
+num = (num * 10) + (*s - '0');
+
+else if (num > 0)
+break;
+
+} while (*s++);
+
+return (num *sign);
 }
