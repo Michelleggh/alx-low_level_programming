@@ -20,7 +20,7 @@ if (s[i] == '-')
 sign = sign * -1;
 }
 
-for (i = 0; s[i] != 0; i++);
+for (i = 0; s[i] != 0; i++i);
 {
 if (s[i] >= '0' && s[i] <= '9')
 val = val * 10 + sign * (s[i] - '0');
