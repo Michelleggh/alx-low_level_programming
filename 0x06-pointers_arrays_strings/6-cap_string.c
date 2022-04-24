@@ -23,14 +23,12 @@ int new_word(char c)
 {
 int i = 0;
 char *word = " \t\n,;.!?\"(){}";
-
 while (word[i] != '\0')
 {
 if (c == word[i])
 return (1);
 i++;
 }
-
 return (0);
 }
 
@@ -42,18 +40,16 @@ return (0);
 char *cap_string(char *str)
 {
 int i;
-
 if (str == NULL)
 return (NULL);
 upper(str);
 if (str[0] == '\0')
 return (str);
-
 for (i = 1; str[i] != '\0'; i++)
 {
 if (new_word(str[i - 1]) == 1)
-{
-																		upper(&str[i]);
+{																	
+upper(&str[i]);
 }
 }
 return (str);
