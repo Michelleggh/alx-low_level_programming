@@ -41,7 +41,6 @@ return (0);
 /**
  * is_palindrome - main - check the code
  * @s: character
- * 
  * Return: Always 0.
  */
 int is_palindrome(char *s)
