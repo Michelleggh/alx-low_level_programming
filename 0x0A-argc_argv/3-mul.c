@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
  * main - mul 2 argv
  * @argc:int
@@ -9,7 +10,6 @@
 int main(int argc, char *argv[])
 {
 int x, i, j;
-
 if (argc != 3)
 {
 printf("Error\n");
