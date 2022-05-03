@@ -26,8 +26,8 @@ else
 for (i = 0; i < 5 && s; i++)
 {
 n = s / c[i];
-ch += n;																
-s -= n * c[i];
+ch += n;
+s -= n *c[i];
 }
 printf("%d\n", ch);
 }
