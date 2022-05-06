@@ -1,72 +1,85 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * wrdcnt - counts the number of words in a string
- * @s: string
- * Return: int of number of words
+ * copychars - copies chars to buffer
+ * @b: destination buffer
+ * @start: starting char pointer
+ * @stop: ending char pointer
  */
-int wrdcnt(char *s)
+void copychars(char *b, char *start, char *stop)
 {
-int i, n = 0;
-
-for (i = 0; s[i]; i++)
-{
-if (s[i] == ' ')
-{
-if (s[i + 1] != ' ' && s[i + 1] != '\0')
-n++;
-}
-n++;
-return (n);
+while (start <= stop)
+*b++ = *start++;
+*b = 0;
 }
 
 /**
- *strtow - splits a string into words
- *@str: string
- *Return: pointer to an array of strings
+ * wordcount - counts the number of words
+ * @str: the sentence string
+ *
+ * Return: int number of words
  */
-char **strtow(char *str)
+int wordcount(char *str)
 {
-int i, j, k, l, n = 0, ch = 0;
-char **x;
+int words = 0, in_word = 0;
 
-if (str == NULL || *str == '\0')
-return (NULL);
-n = wrdcnt(str);
-if (n == 1)
-return (NULL);
-x = (char **)malloc(n * sizeof(char *));
-if (x == NULL)
-return (NULL);
-x[n - 1] = NULL;
-i = 0;
-while (str[i])
+while (1)
+{	
+if (*str == ' ' || !*str)
 {
-if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-{
-for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
-;
-j++;
-x[ch] = (char *)malloc(j * sizeof(char));
-j--;
-if (x[ch] == NULL)
-{
-for (k = 0; k < ch; k++)
-free(x[k]);
-free(x[n - 1]);
-free(x);
-return (NULL);
-}
-for (l = 0; l < j; l++)
-x[ch][l] = str[i + l];
-x[ch][l] = '\0';
-ch++;
-i += j;
+if (in_word)
+words++;
+in_word = 0;
+if (!*str)
+break;
 }
 else
-i++;
+in_word++;
+str++;
 }
-return (x);
+return (words);
+}
+
+/**
+* strtow - splits sentence into words
+* @str: the sentence string
+*
+* Return: pointer to string array
+*/
+char **strtow(char *str)
+{
+int words = 0, in_word = 0;
+char **ret, *word_start;
+
+if (!str || !*str || !wordcount(str))
+return (NULL);
+ret = malloc(sizeof(char *) * (wordcount(str) + 1));
+while (1)
+{
+if (*str == ' ' || !*str)
+{
+if (in_word)
+{
+ret[words] = malloc(sizeof(char) * (in_word + 1));
+if (!ret[words])
+{
+return (NULL);
+}
+copychars(ret[words], word_start, str - 1);
+words++;
+in_word = 0;
+}
+if (!*str)
+break;
+}
+else
+{
+if (!in_word++)
+word_start = str;
+}
+str++;
+}
+ret[words] = 0;
+return (ret);
 }
