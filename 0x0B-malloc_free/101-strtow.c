@@ -25,7 +25,7 @@ int wordcount(char *str)
 int words = 0, in_word = 0;
 
 while (1)
-{	
+{
 if (*str == ' ' || !*str)
 {
 if (in_word)
