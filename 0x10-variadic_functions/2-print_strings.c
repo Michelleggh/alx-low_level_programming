@@ -14,7 +14,7 @@ va_list list;
 
 va_start(list, n);
 
-for (i = 0; i < n; i++)
+or (i = 0; i < n; i++)
 {
 str = va_arg(list, char *);
 if (!str)
@@ -24,7 +24,7 @@ printf("%s", str);
 else if (separator && i == 0)
 printf("%s", str);
 else
-printf("%s%s", separator, str
+printf("%s%s", separator, str);
 }
 
 printf("\n");
