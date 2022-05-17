@@ -14,7 +14,7 @@ va_list list;
 
 va_start(list, n);
 
-or(i = 0; i < n; i++)
+for (i = 0; i < n; i++)
 {
 str = va_arg(list, char *);
 if (!str)
