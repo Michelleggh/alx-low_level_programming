@@ -17,7 +17,7 @@ return (a + b);
  *@a: integer 1
  *@b:integer 2
  *
- *Return: Integer 
+ *Return: Integer
  */
 int op_sub(int a, int b)
 {
