@@ -15,6 +15,6 @@ while (h)
 {
 n++;
 h = h->next;
-
+}
 return (n);
 }
