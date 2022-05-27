@@ -30,7 +30,6 @@ return (-1);
 temp = temp->next;
 i++;}
 
-
 current = temp->next;
 temp->next = current->next;
 free(current);
