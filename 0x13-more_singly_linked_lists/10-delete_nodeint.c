@@ -28,7 +28,8 @@ while (i < index - 1)
 if (!temp || !(temp->next))
 return (-1);
 temp = temp->next;
-i++;}
+i++;
+}
 
 current = temp->next;
 temp->next = current->next;
